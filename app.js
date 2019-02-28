@@ -1,18 +1,16 @@
-
 const express = require('express');
-// const hbs = require('hbs');
+const hbs = require('hbs');
 const app = express();
 const path = require('path');
-const PunkAPIWrapper = require('punkapi-javascript-wrapper');
-const punkAPI = new PunkAPIWrapper();
+const beersRoute = require('./routes/beers');
 
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res, next) => {
-  res.render('index');
-});
+hbs.registerPartials(path.join(__dirname, '/views/partials'));
+
+app.use('/', beersRoute);
 
 // -- 404 and error handler
 

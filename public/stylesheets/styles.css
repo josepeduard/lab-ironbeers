@@ -67,12 +67,13 @@ a:visited {
 
 #firstbutton{
     position: absolute;
-    top: 325px;
+    top: 350px;
     left: 50px;
 }
 
 #secondbutton{
     position: absolute;
-    top: 375px;
+    top: 400px;
     left: 30px;
 }
+
